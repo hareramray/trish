@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trish Voice Assistant</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header>
+    <h1>Trish</h1>
+    <a href="#" id="open-options" class="options-link">Settings</a>
+  </header>
+
+  <div id="status" role="status" aria-live="polite">Not connected</div>
+
+  <div class="controls">
+    <button id="btn-connect" class="primary" aria-keyshortcuts="Alt+Shift+V">
+      Start voice session
+    </button>
+    <button id="btn-mute" hidden aria-pressed="false">Mute microphone</button>
+  </div>
+
+  <div class="controls">
+    <button id="btn-read">Read page aloud (offline, free)</button>
+    <button id="btn-stop-read" hidden>Stop reading</button>
+  </div>
+
+  <section aria-label="Conversation transcript">
+    <h2 class="visually-hidden">Transcript</h2>
+    <div id="transcript"></div>
+  </section>
+
+  <audio id="remote-audio" autoplay></audio>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>

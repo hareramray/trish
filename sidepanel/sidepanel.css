@@ -1,0 +1,118 @@
+:root {
+  --accent: #4f46e5;
+  --accent-dark: #3730a3;
+  --bg: #ffffff;
+  --fg: #111827;
+  --muted: #6b7280;
+  --border: #d1d5db;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111827;
+    --fg: #f9fafb;
+    --muted: #9ca3af;
+    --border: #374151;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 12px;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 10px;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+h1 { font-size: 20px; margin: 0; }
+
+.options-link { color: var(--accent); font-size: 14px; }
+
+#status {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 600;
+  min-height: 1.4em;
+}
+
+#status.connected { border-color: #16a34a; color: #16a34a; }
+#status.error { border-color: #dc2626; color: #dc2626; }
+
+.controls { display: flex; gap: 8px; flex-wrap: wrap; }
+
+button {
+  font: inherit;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  flex: 1;
+  min-height: 44px; /* comfortable touch/low-vision target */
+}
+
+button:hover { border-color: var(--accent); }
+
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+button.primary:hover { background: var(--accent-dark); }
+
+button[aria-pressed="true"] {
+  background: #fbbf24;
+  color: #111827;
+  border-color: #b45309;
+}
+
+section { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+
+#transcript {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.msg { padding: 6px 10px; border-radius: 8px; max-width: 95%; white-space: pre-wrap; }
+.msg.user { align-self: flex-end; background: var(--accent); color: #fff; }
+.msg.assistant { align-self: flex-start; background: rgba(107, 114, 128, 0.15); }
+.msg.system { align-self: center; color: var(--muted); font-size: 13px; font-style: italic; }
+.msg.tool { align-self: flex-start; color: var(--muted); font-size: 13px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

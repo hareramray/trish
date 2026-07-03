@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trish Settings</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      font-size: 16px;
+      max-width: 640px;
+      margin: 24px auto;
+      padding: 0 16px;
+      color: #111827;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #111827; color: #f9fafb; }
+      input, select { background: #1f2937; color: #f9fafb; border-color: #4b5563; }
+    }
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; margin-top: 32px; }
+    label { display: block; margin-top: 14px; font-weight: 600; }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      font: inherit;
+      border: 1px solid #9ca3af;
+      border-radius: 6px;
+    }
+    .hint { font-weight: 400; font-size: 14px; color: #6b7280; margin: 4px 0 0; }
+    button {
+      margin-top: 24px;
+      padding: 12px 24px;
+      font: inherit;
+      font-weight: 600;
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      min-height: 44px;
+    }
+    button:focus-visible { outline: 3px solid #4f46e5; outline-offset: 2px; }
+    #save-status { margin-left: 12px; font-weight: 600; color: #16a34a; }
+  </style>
+</head>
+<body>
+  <h1>Trish Settings</h1>
+
+  <h2>Voice provider</h2>
+  <label for="provider">Provider</label>
+  <select id="provider">
+    <option value="gemini">Gemini Live (recommended)</option>
+    <option value="openai">OpenAI Realtime</option>
+  </select>
+
+  <h2>Gemini (primary)</h2>
+  <label for="geminiKey">Gemini API key</label>
+  <input type="password" id="geminiKey" autocomplete="off" aria-describedby="gemini-hint">
+  <p class="hint" id="gemini-hint">
+    Stored only on this computer. Get a key at aistudio.google.com/apikey.
+  </p>
+
+  <label for="geminiModel">Gemini Live model (voice + TTS)</label>
+  <input type="text" id="geminiModel" placeholder="gemini-2.5-flash-native-audio-preview-12-2025"
+         aria-describedby="gemini-model-hint">
+  <p class="hint" id="gemini-model-hint">
+    A native-audio Live model — it listens and speaks. Preview model names
+    change; if a session won't connect, set the current one from Google's
+    Live API docs.
+  </p>
+
+  <label for="geminiVisionModel">Gemini vision model</label>
+  <input type="text" id="geminiVisionModel" placeholder="gemini-2.5-pro" aria-describedby="gemini-vision-hint">
+  <p class="hint" id="gemini-vision-hint">
+    Used for all vision tasks — describing the screen, locating/clicking by
+    sight, and reading captchas. Defaults to the best (gemini-2.5-pro).
+  </p>
+
+  <label for="geminiVoice">Gemini voice</label>
+  <select id="geminiVoice">
+    <option value="Puck">Puck</option>
+    <option value="Charon">Charon</option>
+    <option value="Kore">Kore</option>
+    <option value="Fenrir">Fenrir</option>
+    <option value="Aoede">Aoede</option>
+    <option value="Zephyr">Zephyr</option>
+  </select>
+
+  <h2>OpenAI (secondary)</h2>
+  <label for="openaiKey">OpenAI API key</label>
+  <input type="password" id="openaiKey" autocomplete="off" aria-describedby="openai-hint">
+  <p class="hint" id="openai-hint">
+    Stored only on this computer. Get a key at platform.openai.com/api-keys.
+  </p>
+
+  <label for="model">OpenAI Realtime model</label>
+  <input type="text" id="model" placeholder="gpt-realtime">
+
+  <label for="visionModel">OpenAI vision model</label>
+  <input type="text" id="visionModel" placeholder="gpt-5" aria-describedby="vision-hint">
+  <p class="hint" id="vision-hint">
+    Used for vision tasks when OpenAI is the selected provider. Defaults to gpt-5.
+  </p>
+
+  <label for="voice">OpenAI voice</label>
+  <select id="voice">
+    <option value="marin">Marin</option>
+    <option value="cedar">Cedar</option>
+    <option value="alloy">Alloy</option>
+    <option value="echo">Echo</option>
+    <option value="shimmer">Shimmer</option>
+  </select>
+
+  <h2>General</h2>
+  <label for="language">Preferred spoken language</label>
+  <input type="text" id="language" placeholder="e.g. English, Hindi, Hinglish"
+         aria-describedby="lang-hint">
+  <p class="hint" id="lang-hint">Leave empty to match whatever language you speak.</p>
+
+  <h2>My profile (used to fill forms for you)</h2>
+  <p class="hint">
+    Saved only on this computer. Sent to the AI provider only when you ask
+    Trish to fill a form with your details. Never store passwords here.
+  </p>
+
+  <label for="fullName">Full name</label>
+  <input type="text" id="fullName" autocomplete="name">
+
+  <label for="email">Email</label>
+  <input type="text" id="email" autocomplete="email">
+
+  <label for="phone">Phone</label>
+  <input type="text" id="phone" autocomplete="tel">
+
+  <label for="address1">Street address</label>
+  <input type="text" id="address1" autocomplete="street-address">
+
+  <label for="city">City</label>
+  <input type="text" id="city" autocomplete="address-level2">
+
+  <label for="state">State</label>
+  <input type="text" id="state" autocomplete="address-level1">
+
+  <label for="postalCode">PIN / postal code</label>
+  <input type="text" id="postalCode" autocomplete="postal-code">
+
+  <label for="country">Country</label>
+  <input type="text" id="country" autocomplete="country-name">
+
+  <button id="save">Save settings</button>
+  <span id="save-status" role="status" aria-live="polite"></span>
+
+  <script src="options.js"></script>
+</body>
+</html>
