@@ -120,7 +120,7 @@ Reassign them at `chrome://extensions/shortcuts`.
   streams 16 kHz PCM16 mic chunks up, and plays the 24 kHz PCM16 audio the model
   speaks back (native TTS). Tools are sent as `functionDeclarations` and
   answered with `toolResponse`; input/output transcriptions drive the
-  transcript. Default model `gemini-2.5-flash-native-audio-preview-12-2025` —
+  transcript. Default model `gemini-3.1-flash-live-preview` —
   **preview names rotate, so update it on the Settings page if a session won't
   connect.** OpenAI's path stays on `gpt-realtime` via WebRTC.
 - **All vision** runs on a separate, stronger model via one-off calls in

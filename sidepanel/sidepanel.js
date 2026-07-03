@@ -43,7 +43,7 @@ async function getSettings() {
   return {
     provider: 'gemini',
     model: 'gpt-realtime',
-    geminiModel: 'gemini-2.5-flash-native-audio-preview-12-2025',
+    geminiModel: 'gemini-3.1-flash-live-preview',
     geminiVisionModel: 'gemini-2.5-pro',
     geminiVoice: 'Puck',
     visionModel: 'gpt-5',
@@ -162,7 +162,7 @@ async function startSession() {
       addMsg('system', 'Error: ' + err.message);
       setStatus('Error — see transcript', 'error');
     },
-    onClosed: () => endSession('Connection lost')
+    onClosed: (reason) => endSession(reason || 'Connection lost')
   };
 
   const opts = {

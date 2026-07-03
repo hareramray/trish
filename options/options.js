@@ -7,7 +7,7 @@ const PROFILE_IDS = ['fullName', 'email', 'phone', 'address1', 'city', 'state', 
 
 const DEFAULTS = {
   provider: 'gemini',
-  geminiModel: 'gemini-2.5-flash-native-audio-preview-12-2025',
+  geminiModel: 'gemini-3.1-flash-live-preview',
   geminiVisionModel: 'gemini-2.5-pro',
   geminiVoice: 'Puck',
   model: 'gpt-realtime',
