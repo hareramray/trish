@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Trish - Voice Web Assistant",
   "version": "0.1.0",
-  "description": "Voice-controlled web assistant for blind and low-vision users: reads pages, answers questions about content, fills forms, and takes actions by voice.",
+  "description": "Voice-controlled web assistant for blind and low-vision users: answers questions about content, and takes actions by voice.",
   "minimum_chrome_version": "116",
   "permissions": ["storage", "tabs", "scripting", "sidePanel", "activeTab", "debugger"],
   "host_permissions": ["<all_urls>"],

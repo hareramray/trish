@@ -145,6 +145,10 @@ Reassign them at `chrome://extensions/shortcuts`.
 - [ ] Encrypt the profile vault at rest
 - [ ] Multi-tab awareness ("switch to the cart tab")
 
+## License
+
+Released under the [MIT License](LICENSE) © 2026 Hareram Ray.
+
 ## Known limitations
 
 - Cannot operate on browser-internal pages (`chrome://…`, Web Store).
